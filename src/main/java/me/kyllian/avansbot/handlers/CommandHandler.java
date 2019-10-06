@@ -6,6 +6,7 @@ import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.TextChannel;
+import org.bukkit.Bukkit;
 
 import java.nio.channels.Channel;
 
@@ -27,6 +28,11 @@ public class CommandHandler {
         bot.getPresence().setActivity(Activity.playing(status));
     }
 
+    public void handleDebugEmoteCommand(String fullCommand, TextChannel channel) {
+        String emote = ditchPrefix("!debugEmote ", fullCommand);
+        channel.sendMessage("> Raw text: " + emote);
+    }
+
     public boolean checkAndHandleAdmin(Member member, TextChannel channel) {
         boolean hasAdmin = member.hasPermission(Permission.ADMINISTRATOR);
         if (!hasAdmin) channel.sendMessage("> You don't have permissions for this!").queue();
@@ -35,5 +41,14 @@ public class CommandHandler {
 
     public String ditchPrefix(String prefix, String fullCommand) {
         return fullCommand.replace(prefix, "");
+    }
+
+    public void handleThrowRanksCommand(Member member, TextChannel textChannel) {
+        if (!checkAndHandleAdmin(member, textChannel)) return;
+        StringBuilder builder = new StringBuilder();
+        textChannel.getGuild().getRoles().forEach(role -> {
+            builder.append("> " + role.getName().replace("@", "") + " ID:" + role.getId()).append("\n");
+        });
+        textChannel.sendMessage(builder.toString().trim()).queue();
     }
 }

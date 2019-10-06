@@ -30,4 +30,12 @@ public class AvansBotPlugin extends JavaPlugin {
     public void setCommandHandler(CommandHandler commandHandler) {
         this.commandHandler = commandHandler;
     }
+
+    public BotHandler getBotHandler() {
+        return botHandler;
+    }
+
+    public void setBotHandler(BotHandler botHandler) {
+        this.botHandler = botHandler;
+    }
 }
