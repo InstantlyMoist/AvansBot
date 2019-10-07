@@ -10,6 +10,7 @@ import net.dv8tion.jda.api.entities.Activity;
 
 import javax.security.auth.login.LoginException;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class BotHandler {
 
@@ -20,7 +21,7 @@ public class BotHandler {
     private String token;
     private String status;
 
-    private HashMap<String, String> roleEmotes;
+    private LinkedHashMap<String, String> roleEmotes;
 
     public BotHandler(AvansBotPlugin plugin) {
         this.plugin = plugin;
@@ -28,7 +29,7 @@ public class BotHandler {
         this.token = plugin.getConfig().getString("Token");
         this.status = plugin.getConfig().getString("Status");
 
-        roleEmotes = new HashMap<>();
+        roleEmotes = new LinkedHashMap<>();
         plugin.getConfig().getConfigurationSection("Roles").getKeys(false).forEach(emoji -> {
             roleEmotes.put(emoji, plugin.getConfig().getString("Roles." + emoji));
         });

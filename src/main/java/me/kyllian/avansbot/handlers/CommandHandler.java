@@ -5,6 +5,7 @@ import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.TextChannel;
 import org.bukkit.Bukkit;
 
@@ -50,5 +51,15 @@ public class CommandHandler {
             builder.append("> " + role.getName().replace("@", "") + " ID:" + role.getId()).append("\n");
         });
         textChannel.sendMessage(builder.toString().trim()).queue();
+    }
+
+    public void handleUpdateRanksCommand(Member member, TextChannel textChannel) {
+        if (!checkAndHandleAdmin(member, textChannel)) return;
+        textChannel.getIterableHistory().forEach(message -> {
+            if (!message.getId().equals("630114888299053067")) return;
+            plugin.getBotHandler().getRoleEmotes().keySet().forEach(emoji -> {
+                message.addReaction(emoji).queue();
+            });
+        });
     }
 }
