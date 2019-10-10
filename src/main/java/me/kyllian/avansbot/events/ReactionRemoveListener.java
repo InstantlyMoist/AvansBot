@@ -14,6 +14,7 @@ public class ReactionRemoveListener extends ListenerAdapter {
 
     @Override
     public void onMessageReactionRemove(MessageReactionRemoveEvent event) {
+        if (event.getMember().getUser().isBot()) return;
         if (!event.getMessageId().equalsIgnoreCase("630114888299053067")) return;
         String foundRank = plugin.getBotHandler().getRoleEmotes().get(event.getReactionEmote().getAsCodepoints());
         if (foundRank == null) return;

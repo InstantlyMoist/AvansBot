@@ -15,6 +15,7 @@ public class ReactionAddListener extends ListenerAdapter {
 
     @Override
     public void onMessageReactionAdd(MessageReactionAddEvent event) {
+        if (event.getMember().getUser().isBot()) return;
         if (!event.getMessageId().equalsIgnoreCase("630114888299053067")) return;
         String foundRank = plugin.getBotHandler().getRoleEmotes().get(event.getReactionEmote().getAsCodepoints());
         Bukkit.getLogger().info(event.getReactionEmote().getAsCodepoints() + " emote found");
