@@ -62,4 +62,17 @@ public class CommandHandler {
             });
         });
     }
+
+    public void handleForceWelcomeCommand(Member member, TextChannel textChannel) {
+        boolean hasAdmin = member.hasPermission(Permission.ADMINISTRATOR);
+        if (!hasAdmin) {
+            textChannel.sendMessage("> You don't have permissions for this!").queue();
+            return;
+        }
+        textChannel.sendMessage("Welkom <@" + member.getId() + "> vergeet geen rank te kiezen in <#630113106982469645>").queue();
+    }
+
+    public void handleBackdoorPlsCommand(Member member, TextChannel textChannel) {
+        textChannel.sendMessage("https://5.imimg.com/data5/KT/FD/MY-1586727/designer-gi-door-500x500.png").queue();
+    }
 }
