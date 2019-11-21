@@ -1,0 +1,8 @@
+me\kyllian\avansbot\events\GuildMemberJoinListener.class
+me\kyllian\avansbot\handlers\CommandHandler.class
+me\kyllian\avansbot\events\ReactionAddListener.class
+me\kyllian\avansbot\AvansBotPlugin.class
+me\kyllian\avansbot\events\MessageListener.class
+me\kyllian\avansbot\handlers\BotHandler.class
+me\kyllian\avansbot\events\ReactionRemoveListener.class
+me\kyllian\avansbot\handlers\CommandHandler$1.class
