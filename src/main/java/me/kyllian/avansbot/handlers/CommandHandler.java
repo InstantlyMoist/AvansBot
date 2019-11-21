@@ -3,6 +3,7 @@ package me.kyllian.avansbot.handlers;
 import me.kyllian.avansbot.AvansBotPlugin;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.Permission;
+
 import net.dv8tion.jda.api.entities.*;
 import org.bukkit.Bukkit;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -10,12 +11,10 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
-import java.nio.channels.Channel;
 
 public class CommandHandler {
 
@@ -23,9 +22,12 @@ public class CommandHandler {
     private JDA bot;
     private URL url;
 
+    private URL url;
+
     public CommandHandler(AvansBotPlugin plugin, JDA bot) {
         this.plugin = plugin;
         this.bot = bot;
+        
         try {
             url = new URL("https://discord-mem.es/api/action/get_meme");
         } catch (Exception exception) {
@@ -105,5 +107,18 @@ public class CommandHandler {
             sb.append((char) cp);
         }
         return sb.toString();
+    }
+
+    public void handleForceWelcomeCommand(Member member, TextChannel textChannel) {
+        boolean hasAdmin = member.hasPermission(Permission.ADMINISTRATOR);
+        if (!hasAdmin) {
+            textChannel.sendMessage("> You don't have permissions for this!").queue();
+            return;
+        }
+        textChannel.sendMessage("Welkom <@" + member.getId() + "> vergeet geen rank te kiezen in <#630113106982469645>").queue();
+    }
+
+    public void handleBackdoorPlsCommand(Member member, TextChannel textChannel) {
+        textChannel.sendMessage("https://5.imimg.com/data5/KT/FD/MY-1586727/designer-gi-door-500x500.png").queue();
     }
 }

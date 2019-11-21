@@ -14,6 +14,8 @@ public class MessageListener extends ListenerAdapter {
         this.plugin = plugin;
     }
 
+
+
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
         if (event.getAuthor().isBot()) return;
@@ -23,5 +25,7 @@ public class MessageListener extends ListenerAdapter {
         if (rawContent.startsWith("!throwRanks")) plugin.getCommandHandler().handleThrowRanksCommand(event.getMember(), event.getTextChannel());
         if (rawContent.startsWith("!updateRanks")) plugin.getCommandHandler().handleUpdateRanksCommand(event.getMember(), event.getTextChannel());
         if (rawContent.startsWith("!sendMeme")) plugin.getCommandHandler().handleSendMemeCommand(event.getMember(), event.getTextChannel());
+        if (rawContent.startsWith("!forceWelcome")) plugin.getCommandHandler().handleForceWelcomeCommand(event.getMember(), event.getTextChannel());
+        if (rawContent.startsWith("!backdoorPls")) plugin.getCommandHandler().handleBackdoorPlsCommand(event.getMember(), event.getTextChannel());
     }
 }

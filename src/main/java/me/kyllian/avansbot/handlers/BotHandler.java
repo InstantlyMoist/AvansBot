@@ -1,6 +1,7 @@
 package me.kyllian.avansbot.handlers;
 
 import me.kyllian.avansbot.AvansBotPlugin;
+import me.kyllian.avansbot.events.GuildMemberJoinListener;
 import me.kyllian.avansbot.events.MessageListener;
 import me.kyllian.avansbot.events.ReactionAddListener;
 import me.kyllian.avansbot.events.ReactionRemoveListener;
@@ -52,6 +53,7 @@ public class BotHandler {
         bot.addEventListener(new MessageListener(plugin));
         bot.addEventListener(new ReactionAddListener(plugin));
         bot.addEventListener(new ReactionRemoveListener(plugin));
+        bot.addEventListener(new GuildMemberJoinListener(plugin));
         plugin.setCommandHandler(new CommandHandler(plugin, bot));
     }
 
