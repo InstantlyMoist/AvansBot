@@ -3,9 +3,9 @@ package me.kyllian.avansbot.handlers;
 import me.kyllian.avansbot.AvansBotPlugin;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.Permission;
-import net.dv8tion.jda.api.entities.Activity;
-import net.dv8tion.jda.api.entities.Member;
-import net.dv8tion.jda.api.entities.TextChannel;
+
+import net.dv8tion.jda.api.entities.*;
+import org.bukkit.Bukkit;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -20,13 +20,14 @@ public class CommandHandler {
 
     private AvansBotPlugin plugin;
     private JDA bot;
+    private URL url;
 
     private URL url;
 
     public CommandHandler(AvansBotPlugin plugin, JDA bot) {
         this.plugin = plugin;
         this.bot = bot;
-
+        
         try {
             url = new URL("https://discord-mem.es/api/action/get_meme");
         } catch (Exception exception) {
