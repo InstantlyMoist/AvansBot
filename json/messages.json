@@ -1,0 +1,19 @@
+{
+    "newInvite": {
+        "embed": {
+            "color": 5400599,
+            "title": "Nieuwe invite aangemaakt!",
+            "description": "Er is een nieuwe SV-turing invite aangemaakt",
+            "fields": [
+                {
+                    "name": "Informatie:",
+                    "value": "Deze link valt eenmalig te gebruiken, wees voorzichtig; deze link geeft meteen toestemming tot de sv-turing rank."
+                },
+                {
+                    "name": "Link:",
+                    "value": "{invite}"
+                }
+            ]
+        }
+    }
+}
