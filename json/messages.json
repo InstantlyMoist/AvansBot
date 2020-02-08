@@ -15,5 +15,17 @@
                 }
             ]
         }
+    },
+    "meme": {
+        "embed": {
+            "title": "{title}",
+             "color": 29439,
+            "footer": {
+              "text": "Subreddit: {subreddit} | {postlink}"
+            },
+            "image": {
+              "url": "{url}"
+            }
+          }
     }
 }
