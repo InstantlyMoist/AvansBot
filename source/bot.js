@@ -68,7 +68,7 @@ async function handleNewInvite(message) {
     message.channel.send(JSON.parse(stringified));
 }
 
-var j = schedule.scheduleJob('30 * * * * *', () => {
+var j = schedule.scheduleJob('30 * * * *', () => {
     client.channels.get('675434903533387809').send("Dit is een bericht dat elk half uur wordt verstuurd");
 });
 
