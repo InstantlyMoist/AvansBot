@@ -1,6 +1,7 @@
 let key = require("./json/key.json");
 let invites = require("./json/invites.json");
 let messages = require("./json/messages.json");
+let schedule = require('node-schedule');
 let meme = require("./meme.js")
 
 let Discord = require('discord.js');
@@ -66,5 +67,9 @@ async function handleNewInvite(message) {
     stringified = stringified.replace("{invite}", invite);
     message.channel.send(JSON.parse(stringified));
 }
+
+var j = schedule.scheduleJob('30 * * * * *', () => {
+    client.channels.get('675434903533387809').send("Dit is een bericht dat elk half uur wordt verstuurd");
+});
 
 client.login(key.key);
