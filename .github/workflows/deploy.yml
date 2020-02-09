@@ -15,6 +15,6 @@ jobs:
         port: ${{ secrets.PORT }}
         passphrase: ${{ secrets.PASSPHRASE }} 
         script: |
-          ls -lsa
           cd /home/${{ secrets.USERNAME }}/AvansBot
-          pm2 deploy /home/${{ secrets.USERNAME }}/AvansBot/ecosystem.config.js production
+          ls -lsa
+          pm2 deploy ecosystem.config.js production
