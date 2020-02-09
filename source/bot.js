@@ -30,12 +30,12 @@ client.on('guildMemberAdd', member => {
 });
 
 client.on('message', message => {
+    if (message.content === "!ping") message.reply('pong!');
     if (message.content === '!newInvite') {
         handleNewInvite(message);
     }
     if (message.content === '!sendMeme') {
         handleMeme(message);
-        //todo: send meme
     }
 });
 
