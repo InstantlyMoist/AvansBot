@@ -40,7 +40,7 @@ client.on('message', message => {
 });
 
 async function handleMeme(message) {
-    let sent = await message.channel.send("Meme is aan het laden...);
+    let sent = await message.channel.send("Meme is aan het laden...");
     let id = sent.id;
     meme.getMemeJSON((data) => {
         message.channel.fetchMessages({ around: id, limit: 1 }).then((foundMessages) => {
