@@ -16,4 +16,5 @@ jobs:
         passphrase: ${{ secrets.PASSPHRASE }} 
         script: |
           ls -lsa
+          cd /home/${{ secrets.USERNAME }}/AvansBot
           pm2 deploy /home/${{ secrets.USERNAME }}/AvansBot/ecosystem.config.js production
