@@ -31,7 +31,7 @@ client.on('guildMemberAdd', member => {
 });
 
 client.on('message', message => {
-    if (message.content === "!ping") message.reply('pong!');
+    if (message.content === "!ping") message.reply('pong pong nibba!');
     if (message.content === '!newInvite') {
         handleNewInvite(message);
     }
