@@ -1,1 +1,0 @@
-let bot = require("./bot.js");
