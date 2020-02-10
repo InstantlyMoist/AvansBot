@@ -13,13 +13,15 @@ let util = require('util');
 let wait = require('util').promisify(setTimeout);
 
 client.on('ready', () => {
+    let startedMessage = JSON.stringify(messages.started);
+    startedMessage = startedMessage.replace("{timestamp}", new Date());
     wait(1000);
+    client.channels.get("676395265443364874").send(JSON.parse(startedMessage));
     client.guilds.forEach(g => {
         g.fetchInvites().then(guildInvites => {
             currentInvites[g.id] = guildInvites;
         });
     });
-    console.log("Fetched all invites");
 });
 
 client.on('guildMemberAdd', member => {

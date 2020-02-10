@@ -1,4 +1,12 @@
 {
+    "started": {
+        "embed": {
+            "color": 65296,
+            "title": "De bot heeft een update ontvangen!",
+            "description": "Je kunt me nu weer gebruiken :D",
+            "timestamp": "{timestamp}"
+        }
+    },
     "newInvite": {
         "embed": {
             "color": 5400599,
