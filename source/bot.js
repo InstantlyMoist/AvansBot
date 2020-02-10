@@ -12,6 +12,8 @@ let currentInvites = {};
 let util = require('util');
 let wait = require('util').promisify(setTimeout);
 
+//test
+
 process.on('message', function (msg) {
     if (msg === 'shutdown') {
         let stoppingMessage = JSON.stringify(messages.stopping);
