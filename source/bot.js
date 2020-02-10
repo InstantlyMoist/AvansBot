@@ -61,9 +61,10 @@ async function handleMeme(message) {
 async function handleNewInvite(message) {
     let invite = await message.channel.createInvite({
         maxAge: 86400,
-        maxUses: 1
+        maxUses: 1,
+        unique: true
     },
-        `Aangevraagd door: ${message.author.tag} + on ${new Date()}`,
+        `Aangevraagd door: ${message.author.tag}`,
     ).catch(console.log);
     let stringified = JSON.stringify(messages.newInvite);
     stringified = stringified.replace("{invite}", invite);
