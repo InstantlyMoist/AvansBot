@@ -12,6 +12,18 @@ let currentInvites = {};
 let util = require('util');
 let wait = require('util').promisify(setTimeout);
 
+process.on('message', function (msg) {
+    if (msg === 'shutdown') {
+        let stoppingMessage = JSON.stringify(messages.stopping);
+        stoppingMessage = stoppingMessage.replace("{timestamp}", new Date());
+        client.channels.get("676395265443364874").send(JSON.parse(stoppingMessage));
+        setTimeout(function () {
+            console.log('Finished closing connections');
+            process.exit(0);
+        }, 1000);
+    }
+});
+
 client.on('ready', () => {
     let startedMessage = JSON.stringify(messages.started);
     startedMessage = startedMessage.replace("{timestamp}", new Date());

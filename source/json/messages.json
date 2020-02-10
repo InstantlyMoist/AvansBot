@@ -7,6 +7,14 @@
             "timestamp": "{timestamp}"
         }
     },
+    "stopping": {
+        "embed": {
+            "color": 13632027,
+            "title": "De bot gaat afsluiten!",
+            "description": "Hope to see you soon :(",
+            "timestamp": "{timestamp}"
+        }
+    },
     "newInvite": {
         "embed": {
             "color": 5400599,
