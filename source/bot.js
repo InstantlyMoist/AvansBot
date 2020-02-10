@@ -45,13 +45,10 @@ client.on('guildMemberAdd', member => {
 });
 
 client.on('message', message => {
-    if (message.content === "!ping") message.reply('pong pong nibba!');
-    if (message.content === '!newInvite') {
-        handleNewInvite(message);
-    }
-    if (message.content === '!sendMeme') {
-        handleMeme(message);
-    }
+    if (message.content === "!ping") message.reply('Wassupp nibbas!');
+    if (message.content === '!newInvite') handleNewInvite(message);
+    if (message.content === '!herres') message.reply('HAHAHAHHA HIJ ZEI HERRES!!!!');
+    if (message.content === '!sendMeme') handleMeme(message);
 });
 
 async function handleMeme(message) {
