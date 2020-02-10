@@ -63,7 +63,7 @@ async function handleNewInvite(message) {
         maxAge: 86400,
         maxUses: 1
     },
-        `Aangevraagd door: ${message.author.tag}`,
+        `Aangevraagd door: ${message.author.tag} + on ${new Date()}`,
     ).catch(console.log);
     let stringified = JSON.stringify(messages.newInvite);
     stringified = stringified.replace("{invite}", invite);
