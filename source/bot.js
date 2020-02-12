@@ -12,13 +12,16 @@ let currentInvites = {};
 let util = require('util');
 let wait = require('util').promisify(setTimeout);
 
+const testChannelID = '676138806407200789';
+const logChannelID = '676395265443364874';
+
 //test
 
 process.on('message', function (msg) {
     if (msg === 'shutdown') {
         let stoppingMessage = JSON.stringify(messages.stopping);
         stoppingMessage = stoppingMessage.replace("{timestamp}", new Date());
-        client.channels.get("676395265443364874").send(JSON.parse(stoppingMessage));
+        client.channels.get(logChannelID).send(JSON.parse(stoppingMessage));
         setTimeout(function () {
             console.log('Finished closing connections');
             process.exit(0);
@@ -30,7 +33,7 @@ client.on('ready', () => {
     let startedMessage = JSON.stringify(messages.started);
     startedMessage = startedMessage.replace("{timestamp}", new Date());
     wait(1000);
-    client.channels.get("676395265443364874").send(JSON.parse(startedMessage));
+    client.channels.get(logChannelID).send(JSON.parse(startedMessage));
     client.guilds.forEach(g => {
         g.fetchInvites().then(guildInvites => {
             currentInvites[g.id] = guildInvites;
@@ -83,7 +86,7 @@ async function handleNewInvite(message) {
 }
 
 var j = schedule.scheduleJob('30 * * * *', () => {
-    client.channels.get('675434903533387809').send("Dit is een bericht dat elk half uur wordt verstuurd");
+    client.channels.get(testChannelID).send("Dit is een bericht dat elk half uur wordt verstuurd");
 });
 
 client.login(key.key);
